@@ -1,3 +1,7 @@
 <template>
-    <p id="header">FFXIV Character Search</p>
+    <div>
+        <h3 id="header">FFXIV Character Search</h3>
+        <img if.bind="showImg" alt='' src.bind="imageSrc" />
+        <h3>${characterJob}</h3>
+    </div>
 </template>
