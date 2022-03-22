@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<template>
+    <div>
+        <h1 id="header">FFXIV Character Search</h1>
+        <div if.bind="showImg">
+          <img if.bind="showImg" alt="character image" src.bind="imageSrc" />
+          <h3>${characterJob}</h3>
+        </div>
+        <div else>
+          <h2>Search for any character.</h2>
+        </div>
+        <div show.bind="invalidSearch">
+          <h2>Invalid search! Try again!</h2>
+        </div>
+        <form>
+          <label for="searchCharacter">Enter character name:</label>
+          <input type="text" id="searchCharacter" name="searchCharacter">
+          <label for="searchServer">Enter server name:</label>
+          <input type="text" id="searchServer" name="searchServer">
+          <button click.delegate="getCharacterInfo()">Search</button>
+        </form>
+    </div>
+</template>
