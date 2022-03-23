@@ -3,21 +3,22 @@
     <div>
         <h1 id="header">FFXIV Character Search</h1>
         <div if.bind="showImg">
-          <img if.bind="showImg" alt="character image" src.bind="imageSrc" />
+          <h2>${characterName}</h2>
           <h3>${characterJob}</h3>
+          <img alt="character image" src.bind="imageSrc" />
         </div>
         <div else>
           <h2>Search for any character.</h2>
         </div>
-        <div show.bind="invalidSearch">
+        <div show.bind="invalid">
           <h2>Invalid search! Try again!</h2>
         </div>
         <form>
           <label for="searchCharacter">Enter character name:</label>
-          <input type="text" id="searchCharacter" name="searchCharacter">
+          <input type="text" id="searchCharacter" value.bind="searchCharacterVal">
           <label for="searchServer">Enter server name:</label>
-          <input type="text" id="searchServer" name="searchServer">
-          <button click.delegate="getCharacterInfo()">Search</button>
+          <input type="text" id="searchServer" value.bind="searchServerVal">
+          <button click.trigger="getCharacterInfo()">Search</button>
         </form>
     </div>
 </template>

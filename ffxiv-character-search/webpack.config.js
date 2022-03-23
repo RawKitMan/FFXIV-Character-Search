@@ -46,7 +46,8 @@ module.exports = ({ production }, { analyze, hmr, port, host }) => ({
     app: [
       // Uncomment next line if you need to support IE11
       // 'promise-polyfill/src/polyfill',
-      'aurelia-bootstrapper'
+      'aurelia-bootstrapper',
+      "regenerator-runtime/runtime.js", "app.js"
     ]
   },
   mode: production ? 'production' : 'development',
