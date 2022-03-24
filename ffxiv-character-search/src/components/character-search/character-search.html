@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <template>
-    <div>
-        <h1 id="header">FFXIV Character Search</h1>
-        <div if.bind="showImg">
+  <require from="../search-box/search-box"></require>
+  <div>
+    <h1 class="text-3xl font-bold mb-2" id="header">FFXIV Character Search</h1>
+    <div class="container h-5/6 ml-1 grid grid-cols-4 grid-rows-3">
+      <div if.bind="showImg" class="shadow-xl col-span-3 row-span-2 rounded bg-white mr-2 p-3">
+        <div class="text-center">
           <h2>${characterName}</h2>
           <h3>${characterJob}</h3>
-          <img alt="character image" src.bind="imageSrc" />
+          <div class="flex justify-center">
+            <img class="h-96" alt="character image" src.bind="imageSrc" />
+          </div>
         </div>
-        <div else>
-          <h2>Search for any character.</h2>
-        </div>
-        <div show.bind="invalid">
-          <h2>Invalid search! Try again!</h2>
-        </div>
-        <form>
-          <label for="searchCharacter">Enter character name:</label>
-          <input type="text" id="searchCharacter" value.bind="searchCharacterVal">
-          <label for="searchServer">Enter server name:</label>
-          <input type="text" id="searchServer" value.bind="searchServerVal">
-          <button click.trigger="getCharacterInfo()">Search</button>
-        </form>
+      </div>
+      <div else class="col-span-3 row-span-2"></div>
+      <search-box 
+        character-name.two-way="characterName"
+        character-job.two-way="characterJob"
+        image-src.two-way="imageSrc"
+      ></search-box>
     </div>
+  </div>
 </template>

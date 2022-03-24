@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<template>
+  <form class="shadow-xl col-span-1 h-5/6 rounded bg-white grid grid-rows-3 p-4">
+    <div class="h-1 row-span-1" if.bind="invalid">
+      <p class="text-2xl">Invalid search! Try again!</p>
+    </div>
+    <div else>
+      <h2 class="text-2xl">Search for any character.</h2>
+    </div>
+    <div>
+      <label class="mr-2" for="searchCharacter">Enter character name:</label>
+      <input class="border-2 border-black rounded mb-5 p-0.5" type="text" id="searchCharacter" value.bind="searchCharacterVal">
+    </div>
+    <div>
+      <label class="mr-8" for="searchServer">Enter server name:</label>
+      <input class="border-2 border-black rounded mb-5 p-0.5" type="text" id="searchServer" value.bind="searchServerVal">
+    </div>
+    <div class="flex justify-center mt-5">
+      <button class="shadow-xl bg-sky-600 w-fit rounded p-2 hover:bg-sky-700 active:bg-sky-800" click.delegate="getCharacterInfo()">Search</button>
+    </div>
+  </form>
+</template>

@@ -8,13 +8,12 @@ describe('CharacterSearch', () => {
 
     beforeEach(() => {
         component = StageComponent
-            .withResources(PLATFORM.moduleName('../../src/components/character-search'))
+            .withResources(PLATFORM.moduleName('../../src/components/character-search/character-search'))
             .inView('<character-search></character-search>');
     });
 
     it('should render headerElement', done => {
         component.create(bootstrap).then(() => {
-            console.log('component', component);
             const headerElement = document.querySelector('#header');
             expect(headerElement.innerHTML).toBe('FFXIV Character Search');
             done();
